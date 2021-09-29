@@ -10,6 +10,11 @@ class TurnUserAdminUseCase {
 
   execute({ user_id }: IRequest): User {
     // Complete aqui
+    const receivedUser = this.usersRepository.findById(user_id);
+
+    const user = this.usersRepository.turnAdmin(receivedUser);
+
+    return user;
   }
 }
 
